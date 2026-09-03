@@ -14,14 +14,16 @@ export function DriveContent({
   items,
   crumbs,
   view,
+  onViewChange,
   onOpenFolder,
   onNavigateCrumb,
 }: {
-  items: DriveItem[]
-  crumbs: Crumb[]
-  view: "grid" | "list"
-  onOpenFolder: (folder: DriveItem) => void
-  onNavigateCrumb: (index: number) => void
+  items: DriveItem[];
+  crumbs: Crumb[];
+  view: "grid" | "list";
+  onViewChange: React.Dispatch<React.SetStateAction<"grid" | "list">>;
+  onOpenFolder: (folder: DriveItem) => void;
+  onNavigateCrumb: (index: number) => void;
 }) {
   return (
     <section className="flex min-h-0 flex-1 flex-col">
