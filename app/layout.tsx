@@ -10,9 +10,8 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'Drive Clone',
-  description: 'A Google Drive style file browser built with mock data',
-  generator: 'v0.app',
+  title: 'LoomDrive',
+  description: 'A self-hostable file storage system',
   icons: {
     icon: [
       {
