@@ -32,23 +32,15 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-# do not commit any .env files to git, except for the .env.example file.
-# https://create.t3.gg/en/usage/env-variables#using-environment-variables
+# do not commit any .env files to git, except for the .env.example file. https://create.t3.gg/en/usage/env-variables#using-environment-variables
 .env
 .env*.local
 
 # vercel
-.vercel/
+.vercel
 
 # typescript
 *.tsbuildinfo
 
 # idea files
 .idea
-
-# v0 sandbox internal files
-__v0_runtime_loader.js
-__v0_devtools.tsx
-__v0_jsx-dev-runtime.ts
-.snowflake/
-.v0-trash/
