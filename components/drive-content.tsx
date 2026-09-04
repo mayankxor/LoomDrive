@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronRight, Home, MoreVertical, ExternalLink } from "lucide-react"
-import type { DriveItem } from "@/lib/mock-data"
+import type { File, Folder } from "@/lib/mock-data"
 import { FileIcon } from "@/components/file-icon"
 import { cn } from "@/lib/utils"
 
@@ -18,11 +18,11 @@ export function DriveContent({
   onOpenFolder,
   onNavigateCrumb,
 }: {
-  items: DriveItem[];
+  items: (File|Folder)[];
   crumbs: Crumb[];
   view: "grid" | "list";
   onViewChange: React.Dispatch<React.SetStateAction<"grid" | "list">>;
-  onOpenFolder: (folder: DriveItem) => void;
+  onOpenFolder: (folder: Folder) => void;
   onNavigateCrumb: (index: number) => void;
 }) {
   return (
@@ -75,8 +75,8 @@ function GridView({
   items,
   onOpenFolder,
 }: {
-  items: DriveItem[]
-  onOpenFolder: (folder: DriveItem) => void
+  items: (File|Folder)[];
+  onOpenFolder: (folder: Folder) => void
 }) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
@@ -123,8 +123,8 @@ function ListView({
   items,
   onOpenFolder,
 }: {
-  items: DriveItem[]
-  onOpenFolder: (folder: DriveItem) => void
+  items: (File|Folder)[];
+  onOpenFolder: (folder: Folder) => void
 }) {
   return (
     <div className="overflow-hidden rounded-xl border border-border">
@@ -145,9 +145,9 @@ function ListView({
                 <FileIcon item={item} size={20} />
                 <span className="truncate font-medium text-foreground">{item.name}</span>
               </span>
-              <span className="hidden truncate text-muted-foreground sm:block">{item.owner}</span>
-              <span className="hidden truncate text-muted-foreground sm:block">{item.modified}</span>
-              <span className="hidden truncate text-muted-foreground sm:block">{item.size ?? "—"}</span>
+              <span className="hidden truncate text-muted-foreground sm:block">-</span>
+              <span className="hidden truncate text-muted-foreground sm:block">-</span>
+              <span className="hidden truncate text-muted-foreground sm:block">{item.type === "file" ? item.size : "-"}</span>
               <span className="grid place-items-center text-muted-foreground">
                 {item.type === "folder" ? (
                   <MoreVertical size={16} aria-hidden="true" />
