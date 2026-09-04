@@ -48,13 +48,13 @@ export const ourFileRouter = {
     .onUploadComplete(async ({ metadata, file }) => {
       // This code RUNS ON YOUR SERVER after upload
       console.log("Upload complete for userId:", metadata.userId);
-      console.log("file url", file.ufsUrl);
+      console.log("file url", file.url);
 
       await MUTATIONS.createFile({
         file: {
           name: file.name,
           size: file.size,
-          url: file.ufsUrl,
+          url: file.url,
           parent: metadata.parentId,
         },
         userId: metadata.userId,
